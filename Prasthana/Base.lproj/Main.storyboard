@@ -16,9 +16,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No target set" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfv-eC-Cf1">
-                                <rect key="frame" x="10" y="139" width="394" height="60"/>
+                                <rect key="frame" x="10" y="139" width="394" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="6OM-SG-G9c"/>
+                                    <constraint firstAttribute="height" constant="40" id="6OM-SG-G9c"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <nil key="textColor"/>
@@ -29,12 +29,12 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="eOh-CS-6eZ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Walked Steps:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lzH-fy-X8K">
-                                <rect key="frame" x="10" y="299" width="394" height="60"/>
+                                <rect key="frame" x="10" y="279" width="394" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="mEi-3E-Wws"/>
                                 </constraints>
@@ -43,9 +43,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="20L-Zh-a6W">
-                                <rect key="frame" x="10" y="369" width="394" height="80"/>
+                                <rect key="frame" x="10" y="349" width="394" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="A8k-uC-OgY"/>
+                                    <constraint firstAttribute="height" constant="40" id="A8k-uC-OgY"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
                                 <nil key="textColor"/>

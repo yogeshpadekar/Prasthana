@@ -20,6 +20,9 @@ class StepsViewController: UIViewController {
     // MARK:- Variables
     private lazy var healthStore = HKHealthStore()
     private var targetSteps = 0
+    private var delayBetweenTwoChecks = 5.0
+    private var greenZoneBoundary: Float = 1.0
+    private var orangeZoneBoundary: Float = 0.3
     
     // MARK:- Life cycle
     override func viewDidLoad() {
@@ -28,7 +31,7 @@ class StepsViewController: UIViewController {
         //Register to app moved to foreground notification
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(getStepsCountPeriodically),
-                                               name: UIApplication.willEnterForegroundNotification,
+                                               name: UIApplication.didBecomeActiveNotification,
                                                object: nil)
         //Get target if already set
         self.targetSteps = UserDefaults.standard.integer(forKey: Constants.kTargetSteps)
@@ -99,7 +102,7 @@ class StepsViewController: UIViewController {
         //If the app is in foreground then periodically fetch steps data, keeping the interval of 5 seconds
         DispatchQueue.main.async {
             if UIApplication.shared.applicationState == .active {
-                self.perform(#selector(self.getStepsCountPeriodically), with: nil, afterDelay: 5.0)
+                self.perform(#selector(self.getStepsCountPeriodically), with: nil, afterDelay: self.delayBetweenTwoChecks)
             }
         }
     }
@@ -107,10 +110,10 @@ class StepsViewController: UIViewController {
     /// Computed property returning color which will be set to stepsLabel to get an idea of how much goal is accomplished
     var stepsTextColor: UIColor {
         if let walkedSteps = Float(self.stepsLabel.text ?? ""), self.targetSteps > 0 {
-            if walkedSteps / Float(self.targetSteps) >= 1.0 {
+            if walkedSteps / Float(self.targetSteps) >= self.greenZoneBoundary {
                 return .green
             }
-            if walkedSteps / Float(self.targetSteps) > 0.3 {
+            if walkedSteps / Float(self.targetSteps) > self.orangeZoneBoundary {
                 return .orange
             }
             return .red
