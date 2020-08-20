@@ -23,6 +23,7 @@ class StepsViewController: UIViewController {
     private var delayBetweenTwoChecks = 5.0
     private var greenZoneBoundary: Float = 1.0
     private var orangeZoneBoundary: Float = 0.3
+    private var previewController: QLPreviewController?
     
     // MARK:- Life cycle
     override func viewDidLoad() {
@@ -55,6 +56,9 @@ class StepsViewController: UIViewController {
                 print(error.debugDescription)
             }
         }
+        
+        //Set PreviewController to nil to be able to show it multiple times
+        self.previewController = nil
     }
     
     deinit {
@@ -93,7 +97,7 @@ class StepsViewController: UIViewController {
             DispatchQueue.main.async {
                 self.stepsLabel.text = String(stepCount)
                 self.stepsLabel.textColor = self.stepsTextColor
-                if self.targetSteps > 0, stepCount >= self.targetSteps {
+                if self.previewController == nil, self.targetSteps > 0, stepCount >= self.targetSteps  {
                     self.showSuccessViewController()
                 }
             }
@@ -184,16 +188,16 @@ class StepsViewController: UIViewController {
         ResourceRequestManager.shared.requestResourceWith(tag: "SuccessModel", onSuccess: {
             //If download succeeds then show QLPreviewController
             DispatchQueue.main.async {
-                //Reset target value
+                //Reset target value and previewcontroller
                 self.targetSteps = 0
                 self.targetLabel.text = Constants.kSetTarget
                 UserDefaults.standard.set(0, forKey: Constants.kTargetSteps)
                 
                 //Show QLPreviewController
-                let previewController = QLPreviewController()
-                previewController.dataSource = self
-                self.navigationController?.pushViewController(previewController, animated: false)
-                previewController.title = Constants.kSuccessTitle
+                self.previewController = QLPreviewController()
+                self.previewController?.dataSource = self
+                self.navigationController?.pushViewController(self.previewController ?? QLPreviewController(), animated: false)
+                self.previewController?.title = Constants.kSuccessTitle
                 self.downloadIndicator.stopAnimating()
             }
             
