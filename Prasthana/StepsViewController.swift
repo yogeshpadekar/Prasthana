@@ -15,7 +15,6 @@ class StepsViewController: UIViewController {
     // MARK:- IBOutlets
     @IBOutlet private var stepsLabel: UILabel!
     @IBOutlet private var targetLabel: UILabel!
-    @IBOutlet private var downloadIndicator: UIActivityIndicatorView!
     
     // MARK:- Variables
     private lazy var healthStore = HKHealthStore()
@@ -183,30 +182,17 @@ class StepsViewController: UIViewController {
     
     /// This function presents ARQuickLookPreview upon completing the target
     func showSuccessViewController() {
-        //Download the usdz resource
-        self.downloadIndicator.startAnimating()
-        ResourceRequestManager.shared.requestResourceWith(tag: "SuccessModel", onSuccess: {
-            //If download succeeds then show QLPreviewController
-            DispatchQueue.main.async {
-                //Reset target value and previewcontroller
-                self.targetSteps = 0
-                self.targetLabel.text = Constants.kSetTarget
-                UserDefaults.standard.set(0, forKey: Constants.kTargetSteps)
-                
-                //Show QLPreviewController
-                self.previewController = QLPreviewController()
-                self.previewController?.dataSource = self
-                self.navigationController?.pushViewController(self.previewController ?? QLPreviewController(), animated: false)
-                self.previewController?.title = Constants.kSuccessTitle
-                self.downloadIndicator.stopAnimating()
-            }
-            
-        }, onFailure: {(error) in
-            print("Error in downloading the success model = \(error.debugDescription)")
-            DispatchQueue.main.async {
-            self.downloadIndicator.stopAnimating()
-            }
-        })
+        //Reset target value and previewcontroller
+        self.targetSteps = 0
+        self.targetLabel.text = Constants.kSetTarget
+        UserDefaults.standard.set(0, forKey: Constants.kTargetSteps)
+        
+        //Show QLPreviewController
+        self.previewController = QLPreviewController()
+        self.previewController?.dataSource = self
+        self.navigationController?.pushViewController(self.previewController ?? QLPreviewController(), animated: false)
+        self.previewController?.title = Constants.kSuccessTitle
+        
     }
 }
 

@@ -14,9 +14,8 @@
 		EC67B30924E7984400AD0283 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC67B30724E7984400AD0283 /* LaunchScreen.storyboard */; };
 		EC67B32F24E7993700AD0283 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC67B32E24E7993700AD0283 /* HealthKit.framework */; };
 		EC67B33124E7AB8600AD0283 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC67B33024E7AB8600AD0283 /* SceneDelegate.swift */; };
-		EC67B33524E7D5A800AD0283 /* Success.usdz in Resources */ = {isa = PBXBuildFile; fileRef = EC67B33424E7D5A800AD0283 /* Success.usdz */; settings = {ASSET_TAGS = (SuccessModel, ); }; };
+		EC67B33524E7D5A800AD0283 /* Success.usdz in Resources */ = {isa = PBXBuildFile; fileRef = EC67B33424E7D5A800AD0283 /* Success.usdz */; };
 		ECDEAE6C24E7E4E500F38384 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDEAE6B24E7E4E500F38384 /* Constants.swift */; };
-		ECDEAE6E24E804B200F38384 /* ResourceRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDEAE6D24E804B200F38384 /* ResourceRequestManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +31,6 @@
 		EC67B33024E7AB8600AD0283 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		EC67B33424E7D5A800AD0283 /* Success.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Success.usdz; sourceTree = "<group>"; };
 		ECDEAE6B24E7E4E500F38384 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		ECDEAE6D24E804B200F38384 /* ResourceRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceRequestManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +70,6 @@
 				EC67B33024E7AB8600AD0283 /* SceneDelegate.swift */,
 				EC67B30024E7981300AD0283 /* StepsViewController.swift */,
 				ECDEAE6B24E7E4E500F38384 /* Constants.swift */,
-				ECDEAE6D24E804B200F38384 /* ResourceRequestManager.swift */,
 				EC67B30224E7981400AD0283 /* Main.storyboard */,
 				EC67B30524E7984400AD0283 /* Assets.xcassets */,
 				EC67B30724E7984400AD0283 /* LaunchScreen.storyboard */,
@@ -116,9 +113,6 @@
 		EC67B2F124E7981200AD0283 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				KnownAssetTags = (
-					SuccessModel,
-				);
 				LastSwiftUpdateCheck = 1150;
 				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = Padekar;
@@ -166,7 +160,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC67B30124E7981300AD0283 /* StepsViewController.swift in Sources */,
-				ECDEAE6E24E804B200F38384 /* ResourceRequestManager.swift in Sources */,
 				EC67B2FD24E7981300AD0283 /* AppDelegate.swift in Sources */,
 				EC67B33124E7AB8600AD0283 /* SceneDelegate.swift in Sources */,
 				ECDEAE6C24E7E4E500F38384 /* Constants.swift in Sources */,
